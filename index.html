@@ -1,41 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <title>ScamNeVirus 2003</title>
+  <meta charset="UTF-8">
+  <title>Чат сообщества</title>
   <style>
-    body {
-      background: black;
-      color: lime;
-      font-family: monospace;
-      text-align: center;
-      padding-top: 50px;
-    }
-    a {
-      color: red;
-      font-weight: bold;
-      text-decoration: none;
-    }
+    body { font-family: sans-serif; margin: 0; padding: 20px; background: #f3f3f3; }
+    .chat-box { background: white; padding: 10px; border-radius: 10px; max-width: 600px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .messages { height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+    .message { margin-bottom: 5px; }
+    .input-row { display: flex; }
+    .input-row input { flex: 1; padding: 10px; border-radius: 5px 0 0 5px; border: 1px solid #ccc; }
+    .input-row button { padding: 10px 15px; border: none; background: #4caf50; color: white; border-radius: 0 5px 5px 0; cursor: pointer; }
+    .input-row button:hover { background: #45a049; }
   </style>
 </head>
 <body>
-  <h1>💾 ScamNeVirus v1.0 💾</h1>
-  <p>Ваш компьютер заражён...</p>
-  <p>...стилем 🤙</p>
-  <a href="virus.txt" download>Скачать антивирус (не вирус)</a>
-  <br><br>
-  <img src="https://media.giphy.com/media/TilmLMmWrRYYHjLfub/giphy.gif" />
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>ScamNeVirus</title>
-  <script>
-    alert("Ваш компьютер заражён... стилем 🧠");
-  </script>
-</head>
-<body>
-  <h1>Добро пожаловать в ScamNeVirus!</h1>
-</body>
-</html>
 
+<div class="chat-box">
+  <h2>Чат сообщества</h2>
+  <div class="messages" id="messages"></div>
+  <div class="input-row">
+    <input type="text" id="messageInput" placeholder="Введите сообщение...">
+    <button onclick="sendMessage()">Отправить</button>
+  </div>
+</div>
+              ₽ьл90 циок3333рф2
+<script>
+  const messagesEl = document.getElementById('messages');
+  const inputEl = document.getElementById('messageInput');
+
+  function sendMessage() {
+    const text = inputEl.value.trim();
+    if (text) {
+      const msg = document.createElement('div');
+      msg.className = 'message';
+      msg.textContent = "Вы: " + text;
+      messagesEl.appendChild(msg);
+      inputEl.value = '';
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+  }
+
+  inputEl.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') sendMessage();
+  });
+</script>
+
+</body>
+</html>
+<script src="script.js"></script>
+
+    
